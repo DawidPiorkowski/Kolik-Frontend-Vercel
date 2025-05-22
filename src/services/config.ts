@@ -1,15 +1,5 @@
-// src/services/config.ts
-
-/**
- * Base URL for all API requests.
- * In production (Vercel), this must be set in the environment:
- * VITE_API_BASE_URL=https://kolik.onrender.com/api
- */
-if (!import.meta.env.VITE_API_BASE_URL) {
-  throw new Error("Missing VITE_API_BASE_URL in environment.");
-}
-
-export const API_BASE = import.meta.env.VITE_API_BASE_URL;
+// Base URL for all API requests (Vercel proxy rewrites to Render backend)
+export const API_BASE = '/api';
 
 /**
  * Universal error handler for fetch responses.
