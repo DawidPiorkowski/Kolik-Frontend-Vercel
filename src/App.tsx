@@ -39,14 +39,6 @@ export default function App() {
 
   return (
     <>
-      {/* Hidden iframe to force CSRF/session cookies */}
-      <iframe
-        src="https://kolik.onrender.com/api/auth/csrf/"
-        style={{ display: 'none' }}
-        sandbox=""
-        title="csrf-preload"
-      />
-
       <Navbar />
       <Layout>
         <Routes>
