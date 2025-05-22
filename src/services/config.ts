@@ -2,16 +2,21 @@
 
 /**
  * Base URL for all API requests.
- * export const API_BASE = 'https://kolik.onrender.com/api'
+ * In production (Vercel), this must be set in the environment:
+ * VITE_API_BASE_URL=https://kolik.onrender.com/api
  */
+if (!import.meta.env.VITE_API_BASE_URL) {
+  throw new Error("Missing VITE_API_BASE_URL in environment.");
+}
 
-export const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '/api' 
+export const API_BASE = import.meta.env.VITE_API_BASE_URL;
+
 /**
  * Universal error handler for fetch responses.
  * Throws so callers can catch and display a user‐friendly message.
  */
 export function handleError(res: Response): void {
-  throw new Error(`Request failed with status ${res.status}`)
+  throw new Error(`Request failed with status ${res.status}`);
 }
 
 /**
@@ -20,8 +25,8 @@ export function handleError(res: Response): void {
 export function getCookie(name: string): string | null {
   const match = document.cookie.match(
     new RegExp('(?:^|; )' + name + '=([^;]*)')
-  )
-  return match ? decodeURIComponent(match[1]) : null
+  );
+  return match ? decodeURIComponent(match[1]) : null;
 }
 
 /**
