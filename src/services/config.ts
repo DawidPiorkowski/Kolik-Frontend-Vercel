@@ -5,7 +5,7 @@
  * export const API_BASE = 'https://kolik.onrender.com/api'
  */
 
-export const API_BASE = '/api'; 
+export const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '/api' 
 /**
  * Universal error handler for fetch responses.
  * Throws so callers can catch and display a user‐friendly message.
